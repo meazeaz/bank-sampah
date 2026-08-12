@@ -1,0 +1,254 @@
+@import url("../brand.css");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.loginscreen {
+    position: relative;
+    background: #f0fdf4; /* Soft green tint base */
+    width: 428px;
+    height: 926px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+/* Elegant organic blurred blobs in background */
+.blob-1 {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,222,128,0.4) 0%, rgba(22,163,74,0.1) 70%);
+    filter: blur(60px);
+    z-index: 1;
+}
+
+.blob-2 {
+    position: absolute;
+    bottom: 100px;
+    left: -150px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.35) 0%, rgba(20,83,45,0.05) 75%);
+    filter: blur(80px);
+    z-index: 1;
+}
+
+.boxlogin {
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    padding: 36px 24px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px -15px rgba(20, 83, 45, 0.07);
+    z-index: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logodark {
+    max-height: 44px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-header h2 {
+    font-size: 24px;
+    font-weight: 600; /* Clean semi-bold, not too harsh */
+    color: var(--secondary-color);
+    margin-bottom: 6px;
+}
+
+.login-header p {
+    font-size: 14px;
+    font-weight: 300; /* Elegant light weight */
+    color: #4b5563; /* Cool gray */
+}
+
+.ikonkon {
+    width: 100%;
+}
+
+.input-icons {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-icons i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+.input-field {
+    width: 100%;
+    height: 52px;
+    padding: 12px 16px 12px 48px;
+    background-color: rgba(248, 250, 252, 0.8);
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 400; /* Neat normal weight */
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.input-field::placeholder {
+    color: #94a3b8;
+    font-weight: 300; /* Light placeholder */
+}
+
+.input-field:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12);
+}
+
+.input-field:focus + i {
+    color: var(--primary-color);
+}
+
+.ingat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    font-size: 13px;
+}
+
+.ingat-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4b5563;
+    font-weight: 400; /* Clean normal weight */
+    cursor: pointer;
+}
+
+.ingat-left input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ingat a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 400; /* Normal weight for forgot password link */
+    transition: color 0.2s;
+}
+
+.ingat a:hover {
+    color: var(--secondary-color);
+}
+
+.tombol {
+    margin-top: 32px;
+}
+
+.tombol .btn1 {
+    width: 100%;
+    height: 50px;
+    border-radius: 14px;
+    background: var(--theme-gradient);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600; /* Clean bold for call-to-action */
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.25);
+    transition: all 0.25s ease;
+}
+
+.btn1:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -3px rgba(5, 150, 105, 0.35);
+}
+
+.btn1:active {
+    transform: translateY(0);
+    opacity: 0.95;
+}
+
+.loregister {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 400; /* Neat normal weight */
+    color: #4b5563;
+}
+
+.loregister a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600; /* Semi-bold to draw attention */
+    transition: color 0.2s;
+}
+
+.loregister a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Alert adjustments for clean look */
+.alert {
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 10px 14px;
+    margin-bottom: 20px !important;
+    border: none;
+}
+.alert-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+}

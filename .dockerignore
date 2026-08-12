@@ -1,0 +1,5 @@
+# Build context hanya perlu vendor/ (untuk menyemai volume) dan docker/.
+# Sisanya masuk lewat bind mount saat runtime.
+*
+!vendor/**
+!docker/**

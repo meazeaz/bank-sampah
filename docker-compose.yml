@@ -1,0 +1,41 @@
+services:
+  db:
+    image: mysql:5.7
+    container_name: wecycle-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: we-cycle
+    ports:
+      # port host 33061 supaya tidak bentrok kalau nanti ada MySQL lain di 3306
+      - "33061:3306"
+    volumes:
+      # dump di-import otomatis saat volume database masih kosong
+      - ./we-cycle.sql:/docker-entrypoint-initdb.d/01-we-cycle.sql:ro
+      - wecycle-dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: wecycle-app
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+      # vendor/ dilayani dari disk container, bukan bind mount Windows yang lambat
+      - wecycle-vendor:/var/www/html/vendor
+      # cache Blade & framework juga sering dibaca-tulis, taruh di disk container
+      - wecycle-framework:/var/www/html/storage/framework
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  wecycle-dbdata:
+  wecycle-vendor:
+  wecycle-framework:

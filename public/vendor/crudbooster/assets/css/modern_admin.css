@@ -1,0 +1,588 @@
+/* =========================================================
+   BANK SAMPAH DIGITAL — Modern Admin CSS
+   ========================================================= */
+
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+/* ── Base Typography ── */
+body, html, input, button, select, textarea,
+.content, .main-header, .main-sidebar, .box, .table,
+.small-box, h1, h2, h3, h4, h5, h6, p, span, a, li, td, th {
+    font-family: 'Outfit', sans-serif !important;
+}
+.fa, .glyphicon, [class^="fa-"], [class*=" fa-"] {
+    font-family: FontAwesome !important;
+}
+.ion { font-family: Ionicons !important; }
+
+/* ── Layout Backgrounds ── */
+.wrapper, .content-wrapper {
+    background-color: #f0f4f8 !important;
+}
+.content-header {
+    padding: 24px 24px 8px 24px !important;
+}
+.content-header h1 {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+}
+.content {
+    padding: 16px 24px 24px 24px !important;
+}
+
+/* =========================================================
+   SIDEBAR — Modern Clean Redesign
+   ========================================================= */
+
+.main-sidebar {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
+    border-right: none !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25) !important;
+    width: 240px !important;
+}
+
+/* skin overrides */
+.skin-green .wrapper,
+.skin-green .main-sidebar,
+.skin-green .left-side {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
+}
+
+.sidebar {
+    padding-bottom: 40px !important;
+}
+
+/* ── User Panel ── */
+.user-panel {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 20px 16px !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.user-panel > .image > img {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(34, 197, 94, 0.6) !important;
+    object-fit: cover;
+}
+.user-panel > .info {
+    padding: 0 !important;
+    position: static !important;
+}
+.user-panel > .info > p {
+    color: #f1f5f9 !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-bottom: 2px !important;
+}
+.user-panel > .info > a {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #4ade80 !important;
+}
+.user-panel > .info > a i {
+    font-size: 8px !important;
+    margin-right: 3px;
+}
+
+/* ── Sidebar Menu Container ── */
+.sidebar-menu {
+    padding: 12px 10px 12px 10px !important;
+    list-style: none !important;
+}
+
+/* ── Section Labels (Navigasi / Pengaturan) ── */
+li.sidebar-section-label {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    color: #64748b !important;
+    padding: 20px 12px 6px 12px !important;
+    background: transparent !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    cursor: default;
+    pointer-events: none;
+    display: block !important;
+    list-style: none !important;
+}
+li.sidebar-section-label:first-child {
+    padding-top: 8px !important;
+}
+li.sidebar-section-label--system {
+    padding-top: 24px !important;
+    margin-top: 8px !important;
+    border-top: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* Hide the old .header li style */
+.sidebar-menu > li.header {
+    display: none !important;
+}
+
+/* ── Menu Items ── */
+.sidebar-menu > li {
+    margin-bottom: 2px !important;
+    list-style: none !important;
+}
+.sidebar-menu > li > a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    color: #94a3b8 !important;
+    border-radius: 10px !important;
+    padding: 10px 12px !important;
+    font-weight: 500 !important;
+    font-size: 13.5px !important;
+    border: none !important;
+    background: transparent !important;
+    transition: all 0.18s ease !important;
+    text-decoration: none !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Icon wrapper */
+.sidebar-menu > li > a .sb-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    flex-shrink: 0 !important;
+    transition: all 0.18s ease !important;
+    font-size: 14px !important;
+    color: #94a3b8 !important;
+}
+.sidebar-menu > li > a .sb-label {
+    flex: 1;
+    color: #94a3b8 !important;
+    transition: color 0.18s ease;
+}
+.sidebar-menu > li > a .sb-arrow {
+    font-size: 12px !important;
+    color: #475569 !important;
+    margin-left: auto !important;
+    transition: transform 0.2s ease;
+}
+
+/* ── Hover State ── */
+.sidebar-menu > li:not(.sidebar-section-label):hover > a {
+    background: rgba(255, 255, 255, 0.07) !important;
+    color: #e2e8f0 !important;
+}
+.sidebar-menu > li:not(.sidebar-section-label):hover > a .sb-icon {
+    background: rgba(34, 197, 94, 0.15) !important;
+    color: #4ade80 !important;
+}
+.sidebar-menu > li:not(.sidebar-section-label):hover > a .sb-label {
+    color: #e2e8f0 !important;
+}
+
+/* ── Active State ── */
+.sidebar-menu > li.active > a,
+.skin-green .sidebar-menu > li.active > a {
+    background: rgba(34, 197, 94, 0.15) !important;
+    color: #4ade80 !important;
+    font-weight: 600 !important;
+    border-left: none !important;
+}
+.sidebar-menu > li.active > a .sb-icon {
+    background: rgba(34, 197, 94, 0.25) !important;
+    color: #4ade80 !important;
+}
+.sidebar-menu > li.active > a .sb-label {
+    color: #4ade80 !important;
+}
+.sidebar-menu > li.active > a .sb-arrow {
+    color: #4ade80 !important;
+}
+
+/* ── Treeview / Submenu ── */
+.treeview-menu {
+    background: transparent !important;
+    padding: 4px 0 6px 0 !important;
+    margin-left: 54px !important;
+    border-left: 1px solid rgba(255,255,255,0.08) !important;
+}
+.treeview-menu > li {
+    list-style: none !important;
+}
+.treeview-menu > li > a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    color: #64748b !important;
+    background: transparent !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+    text-decoration: none !important;
+}
+.treeview-menu > li > a .sb-icon-child {
+    width: 20px !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    color: #475569 !important;
+}
+.treeview-menu > li:hover > a,
+.treeview-menu > li.active > a {
+    color: #4ade80 !important;
+    background: rgba(34, 197, 94, 0.08) !important;
+}
+.treeview-menu > li.active > a .sb-icon-child,
+.treeview-menu > li:hover > a .sb-icon-child {
+    color: #4ade80 !important;
+}
+
+/* ── Skin-green overrides for sidebar items ── */
+.skin-green .sidebar-menu > li > a {
+    border: none !important;
+}
+.skin-green .sidebar-menu > li:hover > a,
+.skin-green .sidebar-menu > li.active > a {
+    background: rgba(34, 197, 94, 0.15) !important;
+    color: #4ade80 !important;
+    border-left-color: transparent !important;
+}
+
+/* =========================================================
+   HEADER / TOPBAR
+   ========================================================= */
+.main-header {
+    max-height: 60px !important;
+}
+.main-header .logo {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    height: 60px !important;
+    line-height: 60px !important;
+    font-size: 17px !important;
+    border-bottom: none !important;
+    width: 240px !important;
+    letter-spacing: 0.3px;
+}
+.main-header .logo:hover {
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%) !important;
+}
+.main-header .navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    margin-left: 240px !important;
+}
+.main-header .navbar .sidebar-toggle {
+    color: #475569 !important;
+    height: 60px !important;
+    padding: 20px 20px !important;
+    border-right: 1px solid #f1f5f9 !important;
+}
+.main-header .navbar .sidebar-toggle:hover {
+    background-color: #f8fafc !important;
+    color: #1e293b !important;
+}
+.main-header .navbar .nav > li > a {
+    color: #475569 !important;
+    height: 60px !important;
+    padding: 20px 16px !important;
+    font-weight: 500 !important;
+}
+.main-header .navbar .nav > li > a:hover {
+    background-color: #f8fafc !important;
+    color: #1e293b !important;
+}
+.main-header .navbar-nav > .user-menu > .dropdown-menu {
+    border-radius: 14px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1) !important;
+    padding: 8px !important;
+    overflow: hidden;
+}
+.main-header .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7) !important;
+    border-radius: 10px !important;
+    color: #1e293b !important;
+    height: auto !important;
+    padding: 20px !important;
+}
+.main-header .navbar-nav > .user-menu > .dropdown-menu > li.user-header p {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+}
+.main-header .navbar-nav > .user-menu > .dropdown-menu > li.user-header img {
+    border: 3px solid #16a34a !important;
+}
+.main-header .navbar-nav > .user-menu > .dropdown-menu > li.user-footer {
+    background-color: #f8fafc !important;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8px 8px 8px !important;
+}
+
+.skin-green .main-header .navbar {
+    background-color: #ffffff !important;
+}
+.skin-green .main-header .logo {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+    color: #ffffff !important;
+}
+.skin-green .main-header .navbar .sidebar-toggle { color: #475569 !important; }
+.skin-green .main-header .navbar .sidebar-toggle:hover { background-color: #f8fafc !important; }
+.skin-green .main-header .navbar .nav > li > a { color: #475569 !important; }
+.skin-green .main-header .navbar .nav > li > a:hover { background-color: #f8fafc !important; }
+.skin-green .main-header .navbar .dropdown-menu li a { color: #475569 !important; }
+.skin-green .main-header .navbar .dropdown-menu li a:hover {
+    background-color: #f0fdf4 !important;
+    color: #16a34a !important;
+}
+
+/* =========================================================
+   CONTENT AREA — Cards / Box
+   ========================================================= */
+.box {
+    border: 1px solid #e2e8f0 !important;
+    border-top: none !important;
+    border-radius: 16px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03) !important;
+    background-color: #ffffff !important;
+    margin-bottom: 24px !important;
+    overflow: hidden !important;
+}
+.box-header {
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 18px 24px !important;
+    background: #ffffff !important;
+}
+.box-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+}
+.box-body { padding: 24px !important; }
+.box-footer {
+    background-color: #f8fafc !important;
+    border-top: 1px solid #f1f5f9 !important;
+    padding: 14px 24px !important;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+.form-control, select {
+    border-radius: 10px !important;
+    border: 1.5px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    height: 44px !important;
+    font-size: 14px !important;
+    color: #1e293b !important;
+    background-color: #ffffff !important;
+    transition: all 0.2s ease !important;
+}
+.form-control:focus, select:focus {
+    border-color: #16a34a !important;
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1) !important;
+}
+label {
+    font-weight: 600 !important;
+    color: #334155 !important;
+    font-size: 14px !important;
+    margin-bottom: 6px !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.btn-primary { background-color: #16a34a !important; color: #ffffff !important; }
+.btn-primary:hover, .btn-primary:focus { background-color: #15803d !important; transform: translateY(-1px); }
+.btn-success { background-color: #22c55e !important; color: #ffffff !important; }
+.btn-success:hover { background-color: #16a34a !important; transform: translateY(-1px); }
+.btn-danger { background-color: #ef4444 !important; color: #ffffff !important; }
+.btn-danger:hover { background-color: #dc2626 !important; transform: translateY(-1px); }
+.btn-warning { background-color: #f59e0b !important; color: #ffffff !important; }
+.btn-warning:hover { background-color: #d97706 !important; }
+.btn-default { background-color: #ffffff !important; border: 1.5px solid #e2e8f0 !important; color: #475569 !important; }
+.btn-default:hover { background-color: #f1f5f9 !important; color: #1e293b !important; }
+.btn-sm, .btn-xs { padding: 6px 12px !important; font-size: 12px !important; border-radius: 8px !important; }
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+.table { margin-bottom: 0 !important; }
+.table th {
+    background-color: #f8fafc !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding: 14px 16px !important;
+    border-top: none !important;
+}
+.table td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 14px !important;
+    border-top: none !important;
+}
+.table-striped tbody tr:nth-of-type(odd) { background-color: #fafbfc !important; }
+.table-hover tbody tr:hover { background-color: #f0fdf4 !important; }
+.table-bordered { border: 1px solid #e2e8f0 !important; }
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+    border: 1px solid #f1f5f9 !important;
+}
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+.pagination {
+    margin: 16px 0 !important;
+    display: inline-flex !important;
+    gap: 4px;
+}
+.pagination > li > a,
+.pagination > li > span {
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #475569 !important;
+    padding: 8px 12px !important;
+    font-weight: 500 !important;
+}
+.pagination > li.active > a,
+.pagination > li.active > span {
+    background-color: #16a34a !important;
+    border-color: #16a34a !important;
+    color: #ffffff !important;
+}
+.pagination > li:hover > a {
+    background-color: #f1f5f9 !important;
+    color: #1e293b !important;
+}
+
+/* =========================================================
+   ALERTS & CALLOUTS
+   ========================================================= */
+.alert { border-radius: 12px !important; border: none !important; }
+.callout { border-radius: 12px !important; border-left-width: 5px !important; }
+.callout.callout-success { background-color: #f0fdf4 !important; border-color: #22c55e !important; color: #15803d !important; }
+.callout.callout-info { background-color: #eff6ff !important; border-color: #3b82f6 !important; color: #1d4ed8 !important; }
+.callout.callout-warning { background-color: #fffbeb !important; border-color: #f59e0b !important; color: #b45309 !important; }
+.callout.callout-danger { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
+
+/* =========================================================
+   DASHBOARD STATS
+   ========================================================= */
+.small-box {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 20px -4px rgba(0,0,0,0.12) !important;
+    border: none !important;
+    position: relative;
+    padding: 24px !important;
+    color: #ffffff !important;
+    margin-bottom: 24px !important;
+}
+.small-box .inner h3 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+    margin-top: 0 !important;
+}
+.small-box .inner p {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    opacity: 0.95 !important;
+    margin: 0 !important;
+}
+.small-box .icon {
+    font-size: 60px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: 24px !important;
+    opacity: 0.2 !important;
+    position: absolute !important;
+}
+.small-box-footer { display: none !important; }
+
+.bg-aqua  { background: linear-gradient(135deg, #0ea5e9, #0284c7) !important; }
+.bg-green { background: linear-gradient(135deg, #10b981, #059669) !important; }
+.bg-yellow{ background: linear-gradient(135deg, #f59e0b, #d97706) !important; }
+.bg-red   { background: linear-gradient(135deg, #ef4444, #dc2626) !important; }
+
+/* =========================================================
+   WELCOME BANNER (Dashboard)
+   ========================================================= */
+.welcome-banner {
+    background: linear-gradient(135deg, #14532d 0%, #16a34a 100%) !important;
+    border-radius: 20px !important;
+    padding: 32px !important;
+    color: #ffffff !important;
+    margin-bottom: 32px !important;
+    box-shadow: 0 10px 25px -5px rgba(22, 163, 74, 0.3) !important;
+}
+.welcome-banner h2 {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}
+.welcome-banner p {
+    font-size: 15px !important;
+    opacity: 0.9 !important;
+    margin-bottom: 0 !important;
+    font-weight: 300 !important;
+}
+
+/* =========================================================
+   MISC FIXES
+   ========================================================= */
+.dropdown-menu-action { left: -130%; }
+.btn-group-action .btn-action { cursor: default; }
+#box-header-module { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.breadcrumb { margin: 0 !important; padding: 0 !important; }
+.form-group > label:first-child { display: block; }
+
+/* Sidebar toggle icon */
+.sidebar-toggle::before { display: none !important; }
+.sidebar-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    height: 50px;
+    width: 50px;
+    font-family: 'FontAwesome' !important;
+}
+#sidebar-toggle-icon::before { content: "\f0c9" !important; }
+@media (min-width: 768px) {
+    body:not(.sidebar-collapse) #sidebar-toggle-icon::before { content: "\f00d" !important; }
+}
+@media (max-width: 767px) {
+    body.sidebar-open #sidebar-toggle-icon::before { content: "\f00d" !important; }
+}

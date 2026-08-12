@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #059669; /* Sleek Emerald Green */
+    --secondary-color: #064e3b; /* Deep Premium Emerald */
+    --accent-color: #10b981; /* Vibrant Mint */
+    --accent-light: #a7f3d0; /* Soft Mint Green */
+    --text-color: #0f172a; /* Ultra-dark Blue Slate (very modern) */
+    --bg-color: #f8fafc; /* Sleek White-Grey background */
+    --card-bg: #ffffff;
+    --theme-gradient: linear-gradient(135deg, #064e3b 0%, #059669 100%); /* Elegant Deep Emerald Gradient */
+}
