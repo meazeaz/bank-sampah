@@ -4,6 +4,41 @@ Project ini butuh **PHP 7.4** (CrudBooster 5.6 tidak jalan di PHP 8) dan **MySQL
 Karena Windows tidak lagi menyediakan PHP 7.4 lewat winget, environment-nya dijalankan
 lewat Docker dengan versi yang persis sesuai requirement.
 
+## Setup di device baru
+
+Yang dibutuhkan hanya **Git** dan **Docker Desktop**. PHP, Composer, dan MySQL tidak perlu
+diinstall di komputer karena semuanya ada di dalam container.
+
+```powershell
+# 1. Wajib di Windows. Aset CrudBooster punya path panjang dan tanpa ini clone gagal
+#    dengan error "Filename too long".
+git config --global core.longpaths true
+
+# 2. Clone. Pakai folder dengan path pendek (mis. D:\bank-sampah), bukan folder
+#    yang sudah dalam berlapis-lapis.
+git clone https://github.com/meazeaz/bank-sampah.git D:\bank-sampah
+cd D:\bank-sampah
+
+# 3. Siapkan .env (file ini sengaja tidak ikut ke git)
+copy .env.example .env
+
+# 4. Build & nyalakan. Build pertama ~2-3 menit karena composer install
+#    dijalankan di dalam image.
+docker compose up -d --build
+
+# 5. Generate APP_KEY, siapkan tabel, dan isi data contoh
+docker exec wecycle-app php artisan key:generate --force
+docker exec wecycle-app php artisan migrate --force
+docker exec wecycle-app php artisan db:seed --class=FreshDataSeeder --force
+```
+
+Buka <http://127.0.0.1:8000>. Login pakai akun di tabel di bawah.
+
+Catatan: `vendor/` dan `node_modules/` sengaja tidak ikut ke repository. `vendor/` dibangun
+otomatis oleh Docker dari `composer.json` + `composer.lock` saat build, jadi tidak perlu
+menjalankan `composer install` sendiri. Aset frontend (`public/css`, `public/js`) sudah
+dalam bentuk jadi, jadi `npm install` juga tidak diperlukan untuk sekadar menjalankan.
+
 ## Perintah harian
 
 Semua dijalankan dari folder project ini.

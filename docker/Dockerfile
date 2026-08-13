@@ -22,10 +22,19 @@ RUN a2enmod rewrite
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/php.ini /usr/local/etc/php/conf.d/app.ini
 
-# vendor/ ikut masuk image supaya named volume "wecycle-vendor" tersemai otomatis.
-# Tanpa ini Laravel harus membaca ~600 file per request lewat bind mount Windows
-# yang berbiaya ~35ms/file (= request 25 detik).
-COPY vendor /var/www/html/vendor
+# vendor/ dibangun di dalam image supaya named volume "wecycle-vendor" tersemai
+# otomatis. Tanpa ini Laravel harus membaca ~600 file per request lewat bind mount
+# Windows yang berbiaya ~35ms/file (= request 25 detik).
+#
+# Dibangun dari composer.json/lock, bukan disalin dari host, supaya hasil clone
+# yang bersih (vendor/ tidak ikut ke git) tetap bisa di-build.
+# --no-scripts dipakai karena source code aplikasi belum ada saat build, sehingga
+# "artisan package:discover" belum bisa jalan; Laravel menjalankannya sendiri saat
+# request pertama dan menulis hasilnya ke bootstrap/cache.
+COPY composer.json composer.lock /var/www/html/
+RUN cd /var/www/html \
+    && composer install --no-scripts --no-interaction --prefer-dist --no-progress \
+    && composer clear-cache
 
 # Menyemai named volume storage/framework dengan struktur folder yang Laravel harapkan
 RUN mkdir -p /var/www/html/storage/framework/cache/data \

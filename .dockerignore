@@ -1,5 +1,6 @@
-# Build context hanya perlu vendor/ (untuk menyemai volume) dan docker/.
-# Sisanya masuk lewat bind mount saat runtime.
+# Build context hanya perlu manifest composer (untuk membangun vendor/) dan docker/.
+# Sisa source code masuk lewat bind mount saat runtime.
 *
-!vendor/**
+!composer.json
+!composer.lock
 !docker/**

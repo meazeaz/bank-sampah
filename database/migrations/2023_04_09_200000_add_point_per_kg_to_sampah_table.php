@@ -13,6 +13,10 @@ class AddPointPerKgToSampahTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasColumn('sampah', 'point_per_kg')) {
+            return;
+        }
+
         Schema::table('sampah', function (Blueprint $table) {
             $table->integer('point_per_kg')->default(0)->after('price_per_kg');
         });

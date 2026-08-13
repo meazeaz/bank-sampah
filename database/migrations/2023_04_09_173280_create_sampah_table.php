@@ -13,6 +13,14 @@ class CreateSampahTable extends Migration
      */
     public function up()
     {
+        // Tabel ini sudah dibuat oleh dump we-cycle.sql, tapi tercatat di tabel
+        // migrations dengan timestamp lain (173275), sehingga migration ini terbaca
+        // sebagai belum jalan. Tanpa penjagaan ini "php artisan migrate" gagal pada
+        // instalasi baru yang mengimpor dump tersebut.
+        if (Schema::hasTable('sampah')) {
+            return;
+        }
+
         Schema::create('sampah', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('category_id')->unsigned()->index()->nullable();
